@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 import radium from 'Radium'
 
 import icons from 'Icons'
-import SvgIcon from 'SvgIcon'
+import SvgIcon from '../SvgIcon/SvgIcon'
 
 const styles = {
   controlBar: {

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 import icons from './icons.json'
-import SvgIcon from 'SvgIcon'
+import SvgIcon from '../SvgIcon/SvgIcon'
 
 import radium from 'Radium'
 

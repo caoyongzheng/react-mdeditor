@@ -9,8 +9,8 @@ import 'github-markdown-css'
 import marked from 'marked'
 import radium from 'Radium'
 
-import ToolBar from './Toolbar.jsx'
-import ControlBar from './ControlBar.jsx'
+import ToolBar from './Toolbar'
+import ControlBar from './ControlBar'
 
 const styles = {
   mkeditor: {
