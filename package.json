@@ -1,6 +1,6 @@
 {
   "name": "react-mdeditor",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "a in-brower markdown editor,based on CodeMirror and React",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/caoyongzheng/react-mdeditor#readme",
   "devDependencies": {
+    "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-eslint": "^6.1.0",
     "babel-loader": "^6.2.4",

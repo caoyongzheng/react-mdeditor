@@ -11,7 +11,7 @@ module.exports = {
     demo:'./demos/demo.jsx'
   },
   output:{
-    path:'dist/',
+    path:'assets/',
     filename:'[name].js',
     publicPath:'assets/'
   },
@@ -51,6 +51,7 @@ module.exports = {
     alias:{
       SvgIcon: 'src/SvgIcon/SvgIcon.jsx',
       MDEditor: 'src/MDEditor/MDEditor.jsx',
+      Icons: 'src/MDEditor/icons.json',
     }
   },
   plugins:[

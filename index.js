@@ -1,1 +1,1 @@
-module.exports = require('./dist/demo.js');
+module.exports = require('./lib/MDEditor/MDEditor.js');

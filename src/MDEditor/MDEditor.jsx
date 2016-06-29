@@ -45,7 +45,6 @@ const styles = {
     overflowY: 'scroll',
   },
   preview: {
-    height: '100%',
     padding: '20px',
     overflowY: 'scroll',
     position: 'relative',
