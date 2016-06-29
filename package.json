@@ -1,0 +1,53 @@
+{
+  "name": "react-mdeditor",
+  "version": "1.0.0",
+  "description": "a in-brower markdown editor,based on CodeMirror and React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=development webpack --watch",
+    "prod": "NODE_ENV=production webpack -p",
+    "server": "webpack-dev-server --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caoyongzheng/react-mdeditor.git"
+  },
+  "keywords": [
+    "codemirror",
+    "react"
+  ],
+  "author": "caoyongzheng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caoyongzheng/react-mdeditor/issues"
+  },
+  "homepage": "https://github.com/caoyongzheng/react-mdeditor#readme",
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-eslint": "^6.1.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-loader": "^1.3.0",
+    "eslint-plugin-import": "^1.9.2",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
+    "json-loader": "^0.5.4",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "codemirror": "^5.16.0",
+    "github-markdown-css": "^2.3.0",
+    "marked": "^0.3.5",
+    "radium": "^0.17.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
