@@ -1,3 +1,1 @@
-import MDEditor from './src/MDEditor/MDEditor.jsx'
-
-export default MDEditor
+module.exports = require('./dist/demo.js');

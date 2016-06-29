@@ -11,8 +11,8 @@ module.exports = {
     demo:'./demos/demo.jsx'
   },
   output:{
-    path:'assets/',
-    filename:'[name].min.js',
+    path:'dist/',
+    filename:'[name].js',
     publicPath:'assets/'
   },
   module:{
@@ -25,11 +25,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exculde:[/node_modules/],
-        loader: 'babel-loader',
-        query: {
-          compact: false,
-          presets: ['es2015', 'stage-0', 'react']
-        }
+        loader: 'babel-loader'
       },
       {
           test: /\.css$/,
