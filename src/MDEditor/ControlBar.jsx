@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 import radium from 'Radium'
 
-import icons from 'Icons'
+import icons from './icons.json'
 import SvgIcon from '../SvgIcon/SvgIcon'
 
 const styles = {
