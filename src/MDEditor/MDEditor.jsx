@@ -16,7 +16,6 @@ const styles = {
   mkeditor: {
     position: 'relative',
     width: '100%',
-    minHeight: '340px',
   },
   navbar: {
     position: 'absolute',
@@ -118,6 +117,16 @@ class MDEditor extends React.Component {
     this.setState({
       fullscreen: !this.state.fullscreen,
     })
+  }
+  addImage = (imageUrl) => {
+    const cm = this.codeMirror
+    const startPoint = cm.getCursor('start')
+    const endPoint = cm.getCursor('end')
+    cm.replaceSelection(`${cm.getSelection()}![](${imageUrl})`)
+    startPoint.ch = endPoint.ch
+    endPoint.ch += imageUrl.length + 5
+    cm.setSelection(startPoint, endPoint)
+    cm.focus()
   }
   resize = () => {
     this.codeParent.lastChild.style.height = `${this.codeParent.offsetHeight}px`
