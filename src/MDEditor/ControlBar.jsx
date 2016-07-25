@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 
-import radium from 'Radium'
-
+import _ from 'lodash'
 import icons from './icons.json'
 import SvgIcon from '../SvgIcon/SvgIcon'
+import Item from './Item'
 
 const styles = {
   controlBar: {
@@ -25,48 +25,53 @@ const styles = {
     fontSize: '11px',
     padding: '0 15px',
     color: '#444',
-    ':hover': {
-      backgroundColor: '#fafafa',
-      border: '1px solid rgba(0, 0, 0, 0.1)',
-    },
   },
   active: {
+    backgroundColor: '#fafafa',
+    border: '1px solid rgba(0, 0, 0, 0.1)',
+  },
+  hover: {
     backgroundColor: '#fafafa',
     border: '1px solid rgba(0, 0, 0, 0.1)',
   },
 }
 
 function ControlBar({ mode, active, onActiveChange, fullscreen, onFullScreenChange }) {
+  const itemStyle = _.merge({}, styles.listItem)
+  const activeItemStyle = _.merge({}, itemStyle, styles.active)
   return (
     <div style={styles.controlBar}>
       <ul style={styles.list}>
         {
           mode === 'tab' ?
-            <li
+            <Item
               key="code"
-              style={[styles.listItem, active === 'code' ? styles.active : null]}
+              style={active === 'code' ? activeItemStyle : itemStyle}
               onClick={() => onActiveChange('code')}
+              hoverStyle={styles.hover}
             >
               <a style={styles.listItemA}>{'Markdown'}</a>
-            </li> : null
+            </Item> : null
         }
         {
           mode === 'tab' ?
-            <li
+            <Item
               key="preview"
-              style={[styles.listItem, active === 'preview' ? styles.active : null]}
+              style={active === 'preview' ? activeItemStyle : itemStyle}
               onClick={() => onActiveChange('preview')}
+              hoverStyle={styles.hover}
             >
               <span style={styles.listItemA}>{'Preview'}</span>
-            </li> : null
+            </Item> : null
         }
-        <li
+        <Item
           key="fullscreen"
-          style={styles.listItem}
+          style={itemStyle}
+          hoverStyle={styles.hover}
           onClick={onFullScreenChange}
         >
           <SvgIcon {...(fullscreen ? icons.minify : icons.expand)} />
-        </li>
+        </Item>
       </ul>
     </div>
   )
@@ -78,4 +83,4 @@ ControlBar.propTypes = {
   fullscreen: PropTypes.bool.isRequired,
   onFullScreenChange: PropTypes.func.isRequired,
 }
-export default radium(ControlBar)
+export default ControlBar

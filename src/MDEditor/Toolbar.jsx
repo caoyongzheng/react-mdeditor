@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 
 import icons from './icons.json'
+import Item from './Item'
 import SvgIcon from '../SvgIcon/SvgIcon'
-
-import radium from 'Radium'
+import _ from 'lodash'
 
 const styles = {
   toolBar: {
@@ -23,11 +23,11 @@ const styles = {
     cursor: 'pointer',
     fontSize: '11px',
     padding: '0 12px',
-    ':hover': {
-      backgroundColor: '#fafafa',
-      color: '#444',
-      border: '1px solid rgba(0, 0, 0, 0.1)',
-    },
+  },
+  hover: {
+    backgroundColor: '#fafafa',
+    color: '#444',
+    border: '1px solid rgba(0, 0, 0, 0.1)',
   },
 }
 
@@ -157,18 +157,23 @@ function applyFormat(getCM, key) {
 }
 
 function ToolBar({ getCM, hide }) {
-  const toolBarStyles = [styles.toolBar]
+  const toolBarStyles = _.merge({}, styles.toolBar)
   if (hide) {
-    toolBarStyles.push({ display: 'none' })
+    _.merge(toolBarStyles, { display: 'none' })
   }
   return (
     <div style={toolBarStyles}>
       <ul style={styles.list}>
         {
           Icons.map((icon, i) =>
-            <li key={i} style={styles.listItem} onClick={() => applyFormat(getCM, icon)}>
+            <Item
+              key={i}
+              style={styles.listItem}
+              onClick={() => applyFormat(getCM, icon)}
+              hoverStyle={styles.hover}
+            >
               <SvgIcon {...icons[icon]} />
-            </li>
+            </Item>
           )
         }
       </ul>
@@ -181,4 +186,4 @@ ToolBar.propTypes = {
   hide: PropTypes.bool,
 }
 
-export default radium(ToolBar)
+export default ToolBar

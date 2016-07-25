@@ -11,11 +11,12 @@ const styles = {
   },
 }
 
-ReactDOM.render(
+ReactDOM.render((
   <div style={styles.stage}>
     <MDEditor key={'split'} />
-    <div style={{ height: '30px' }}></div>
+    <div style={{ height: '30px' }} />
     <MDEditor key={'tab'} mode={'tab'} />
-  </div>,
-  document.getElementById('stage')
+  </div>
+),
+document.getElementById('stage')
 )

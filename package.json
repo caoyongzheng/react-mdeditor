@@ -1,13 +1,13 @@
 {
   "name": "react-mdeditor",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "a in-brower markdown editor,based on CodeMirror and React",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=development webpack --watch",
     "prod": "NODE_ENV=production webpack -p",
-    "server": "webpack-dev-server --inline"
+    "start": "webpack-dev-server --inline --port 9090 --host 127.0.0.1"
   },
   "repository": {
     "type": "git",
@@ -46,8 +46,8 @@
   "dependencies": {
     "codemirror": "^5.16.0",
     "github-markdown-css": "^2.3.0",
+    "lodash": "^4.14.0",
     "marked": "^0.3.5",
-    "radium": "^0.17.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   }

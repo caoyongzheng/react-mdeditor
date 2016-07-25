@@ -7,7 +7,7 @@ import 'codemirror/mode/markdown/markdown'
 
 import 'github-markdown-css'
 import marked from 'marked'
-import radium from 'Radium'
+import _ from 'lodash'
 
 import ToolBar from './Toolbar'
 import ControlBar from './ControlBar'
@@ -135,19 +135,25 @@ class MDEditor extends React.Component {
     const { md, height, mode } = this.props
     const { active, html, fullscreen } = this.state
 
-    const mkeditorStyles = [styles.mkeditor, { height: `${height}px` },
-      fullscreen ? styles.fullscreen : null]
-    const contentStyles = [styles.content]
-    const codeStyles = [styles.code]
-    const previewStyles = [styles.preview]
+    const mkeditorStyles = _.merge(styles.mkeditor, { height: `${height}px` })
+    if (fullscreen) {
+      _.merge(mkeditorStyles, styles.fullscreen)
+    }
+    const contentStyles = _.merge({}, styles.content)
+    const codeStyles = _.merge({}, styles.code)
+    const previewStyles = _.merge({}, styles.preview)
 
     if (mode === 'tab') {
-      codeStyles.push(active === 'code' ? null : styles.hide)
-      previewStyles.push(active === 'preview' ? null : styles.hide)
+      if (active !== 'code') {
+        _.merge(codeStyles, styles.hide)
+      }
+      if (active !== 'preview') {
+        _.merge(previewStyles, styles.hide)
+      }
     } else if (mode === 'split') {
-      contentStyles.push(splitStyles.content)
-      codeStyles.push(splitStyles.code)
-      previewStyles.push(splitStyles.preview)
+      _.merge(contentStyles, splitStyles.content)
+      _.merge(codeStyles, splitStyles.code)
+      _.merge(previewStyles, splitStyles.preview)
     }
     return (
       <div style={mkeditorStyles}>
@@ -198,4 +204,4 @@ MDEditor.propTypes = {
   mode: PropTypes.oneOf(['tab', 'split']),
   codemirror: PropTypes.object,
 }
-export default radium(MDEditor)
+export default MDEditor
