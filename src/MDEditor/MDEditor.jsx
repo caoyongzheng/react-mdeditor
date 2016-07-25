@@ -135,7 +135,7 @@ class MDEditor extends React.Component {
     const { md, height, mode } = this.props
     const { active, html, fullscreen } = this.state
 
-    const mkeditorStyles = _.merge(styles.mkeditor, { height: `${height}px` })
+    const mkeditorStyles = _.merge({}, styles.mkeditor, { height: `${height}px` })
     if (fullscreen) {
       _.merge(mkeditorStyles, styles.fullscreen)
     }

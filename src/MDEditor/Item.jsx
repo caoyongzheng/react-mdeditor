@@ -24,7 +24,7 @@ class Item extends React.Component {
       _.merge(styles, hoverStyle)
     }
     return (
-      <li {...other} style={styles}>
+      <li {...other} style={styles} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}>
         {children}
       </li>
     )
