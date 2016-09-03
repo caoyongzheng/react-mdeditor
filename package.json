@@ -1,6 +1,6 @@
 {
   "name": "react-mdeditor",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "a in-brower markdown editor,based on CodeMirror and React",
   "main": "index.js",
   "scripts": {

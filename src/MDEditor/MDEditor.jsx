@@ -81,6 +81,11 @@ class MDEditor extends React.Component {
     html: '',
     fullscreen: false,
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.md !== this.props.md) {
+      this.codeMirror.setValue(nextProps.md)
+    }
+  }
   componentDidMount() {
     this.codeMirror = CodeMirror.fromTextArea(ReactDOM.findDOMNode(this.refs.codemirror),
     this.props.codemirror)
@@ -99,6 +104,9 @@ class MDEditor extends React.Component {
       this.setState({
         html: marked(this.codeMirror.getValue()),
       })
+    }
+    if (onChange) {
+      onChange(this.codeMirror.getValue())
     }
   }
   onActiveChange = (active) => {
@@ -132,12 +140,12 @@ class MDEditor extends React.Component {
     this.codeParent.lastChild.style.height = `${this.codeParent.offsetHeight}px`
   }
   render() {
-    const { md, height, mode } = this.props
+    const { md, height, mode, zIndex } = this.props
     const { active, html, fullscreen } = this.state
 
     const mkeditorStyles = _.merge({}, styles.mkeditor, { height: `${height}px` })
     if (fullscreen) {
-      _.merge(mkeditorStyles, styles.fullscreen)
+      _.merge(mkeditorStyles, styles.fullscreen, { zIndex })
     }
     const contentStyles = _.merge({}, styles.content)
     const codeStyles = _.merge({}, styles.code)
@@ -190,6 +198,7 @@ MDEditor.defaultProps = {
   md: '',
   height: 500,
   mode: 'split',
+  zIndex: '1200',
   codemirror: {
     mode: 'markdown',
     lineNumbers: false,
@@ -202,6 +211,8 @@ MDEditor.propTypes = {
   md: PropTypes.string,
   height: PropTypes.number,
   mode: PropTypes.oneOf(['tab', 'split']),
+  zIndex: PropTypes.number,
   codemirror: PropTypes.object,
+  onChange: PropTypes.func,
 }
 export default MDEditor
