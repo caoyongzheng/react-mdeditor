@@ -198,7 +198,7 @@ MDEditor.defaultProps = {
   md: '',
   height: 500,
   mode: 'split',
-  zIndex: '1200',
+  zIndex: 1200,
   codemirror: {
     mode: 'markdown',
     lineNumbers: false,

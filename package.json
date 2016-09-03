@@ -1,10 +1,12 @@
 {
   "name": "react-mdeditor",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "a in-brower markdown editor,based on CodeMirror and React",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "./node_modules/.bin/rimraf lib && ./node_modules/.bin/babel src --copy-files --source-maps --extensions .js,.jsx --out-dir lib",
+    "prepublish": "npm run compile",
     "build": "NODE_ENV=development webpack --watch",
     "prod": "NODE_ENV=production webpack -p",
     "start": "webpack-dev-server --inline --port 9090 --host 127.0.0.1"
